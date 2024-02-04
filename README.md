@@ -16,6 +16,7 @@ There are two components in this system: The Client (a Laptop or Tower Computer)
 
 The EV3 robot is controlled via protocol based on tcp. (This is specified [here](./ProtocolSpec.md)). The Script that runs on the EV3 can be found in the [robot](./src/robot) folder. The Robot is a lego Mindstorms EV3 running [EV3Dev](https://www.ev3dev.org/) and is connected via WIFI to the client.
 
-The pathfinding and controlle on the other side is done on the client due to the hardware constrains on the EV3. The code for it can be found [here](./src/client/). Dijkstras algorithm is used to determain the shortes path.
+The pathfinding, command and control on the other side is done on the client due to the hardware constrains on the EV3. The code for it can be found [here](./src/client/). Dijkstra's algorithm is used to find the shortest path.
+
 
 
