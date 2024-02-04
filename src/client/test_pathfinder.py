@@ -1,4 +1,4 @@
-import maze 
+import src.client.maze as maze 
 from toolkit.console import color
 from toolkit.console import ui
 from PIL import Image

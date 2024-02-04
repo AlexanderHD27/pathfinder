@@ -3,6 +3,11 @@ import socket
 import json
 import time
 
+#
+# This is a test client to send commands manual to the EV3
+# (just for testing)
+#
+
 def recvall(sock, BUFF_SIZE = 2048):
         data = b""
         while True:

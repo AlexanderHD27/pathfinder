@@ -6,7 +6,7 @@ import time
 import sys
 
 from toolkit.console import ui
-import maze
+import src.client.maze as maze
 
 # Get server address
 if len(sys.argv) < 4:

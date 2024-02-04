@@ -17,8 +17,18 @@ sys.stdout.write("\r7/{}".format(modules))
 import ev3dev2.sensor.lego # pylint: disable=import-error
 sys.stdout.write("\r8/{}".format(modules))
 
+#
+# This could should be run on the EV3, not a normal computer
+#
+
+
+# Usually its bad practice to write any code before your import, 
+# but due to the potato nature of the ev3 process, imports take 
+# a solid 1.5min and it's nice to know if anything crashed!
+
 unit = -700
 
+# Init Motor, Sensors etc
 leds = ev3dev2.led.Leds()
 colorSensor = ev3dev2.sensor.lego.ColorSensor()
 gyro = ev3dev2.sensor.lego.GyroSensor()
@@ -27,6 +37,7 @@ infra = ev3dev2.sensor.lego.InfraredSensor()
 motors = ev3dev2.motor.MoveTank("A", "B")
 motorD = ev3dev2.motor.Motor(address="D")
 
+# Setting up TCP Server
 address = (sys.argv[1], 1337)
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -40,6 +51,7 @@ sign = lambda x: 1 if x > 0 else -1
 def send(data):
     conn.sendall(json.dumps(data).encode("utf-8"))
 
+# This is utile function to recv a compleat TCP package
 def recvall(BUFF_SIZE = 2048):
         data = b""
         while True:
